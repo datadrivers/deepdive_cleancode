@@ -1,0 +1,25 @@
+function convertRomanNumberToArabic(string $romanNumber) : int {
+	$replacements = [
+		"M" => 1000,
+		"D" => 500,
+		"C" => 100,
+		"L" => 50,
+		"X" => 10,
+		"V" => 5,
+		"I" => 1
+	];
+	$result = 0;
+	$lastProcessedValue = 0;
+	for($index = 0; $index < strlen($romanNumber); $index++) {
+		$currentCharacter = substr($romanNumber, $index, 1);
+		if (!array_key_exists($currentCharacter, $replacements))
+			return 0;
+		$currentValue = $replacements[$currentCharacter];
+		if ($lastProcessedValue > 0 && $currentValue > $lastProcessedValue) { // bigger number after smaller means that smaller should be subtracted
+			$result -= 2 * $lastProcessedValue // remove twice: wrongly added in last round and because of above rule
+		}
+		$result += $currentValue;
+		$lastProcessedValue = $currentValue;
+	}
+	return $result;
+}

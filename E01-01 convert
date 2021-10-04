@@ -1,0 +1,1 @@
+function convert($input){$M=2*$D=5*$C=2*$L=5*$X=2*$V=5*$I=1;while($z=substr($input,$o++,1))	$r+=($$z>$l)*-$l*2+$l=$$z;return $r;}

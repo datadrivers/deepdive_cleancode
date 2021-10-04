@@ -1,0 +1,13 @@
+public class Systemnutzer {
+
+	public static final int MAX_SECONDS = 25;
+	public static final int MINSECONDS  = 10;
+	
+	int sid = 86400;
+	int d = 0; // days since last login
+	String username_string = "";
+	String[] adressen = [];
+	int numberOfFriends = 0;
+	Program[] usersUsedProgramsBucket = [];
+
+}
